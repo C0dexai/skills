@@ -1,43 +1,16 @@
-> [!IMPORTANT]
-> **This repository is deprecated.** For current Codex skill and plugin examples, use the [OpenAI Plugins repository](https://github.com/openai/plugins). If you want to add your own skills to Codex, follow the [Build plugins](https://developers.openai.com/codex/plugins/build) guide, which includes instructions for creating a skill-only plugin.
+# AI-INTEL Capabilities
 
-# Agent Skills
+Installable Codex plugin containing governed Agent Skills for the AI-INTEL and NET2OOLS platform.
 
-Agent Skills are folders of instructions, scripts, and resources that AI agents can discover and use to perform at specific tasks. Write once, use everywhere.
+## Included skills
 
-Codex uses skills to help package capabilities that teams and individuals can use to complete specific tasks in a repeatable way. This repository catalogs skills for use and distribution with Codex.
+- `ai-intel-connection-binding` — resolve approved services, routes, authentication, health, and governance.
+- `provider-health` — verify model-provider availability without invoking inference.
+- `mcp-discovery` — inspect MCP servers and tool contracts safely.
+- `network-diagnostics` — perform evidence-based DNS, route, port, and reachability checks.
+- `apex-debugger` — diagnose APEX Debugger UI, toolchain, streaming, and ESM-to-NIM failures.
+- `event-streaming` — design and verify normalized SSE/WebSocket event flows.
+- `openclaw-operations` — inspect and operate OpenClaw with narrow tools and explicit approvals.
+- `docker-inspect` — inspect Docker state without granting unrestricted daemon control.
 
-Learn more:
-- [Using skills in Codex](https://developers.openai.com/codex/skills)
-- [Create custom skills in Codex](https://developers.openai.com/codex/skills/create-skill)
-- [Agent Skills open standard](https://agentskills.io)
-
-## Installing a skill
-
-Skills in [`.system`](skills/.system/) are automatically installed in the latest version of Codex.
-
-To install [curated](skills/.curated/) or [experimental](skills/.experimental/) skills, you can use the `$skill-installer` inside Codex.
-
-Curated skills can be installed by name (defaults to `skills/.curated`):
-
-```
-$skill-installer gh-address-comments
-```
-
-For experimental skills, specify the skill folder. For example:
-
-```
-$skill-installer install the create-plan skill from the .experimental folder
-```
-
-Or provide the GitHub directory URL:
-
-```
-$skill-installer install https://github.com/openai/skills/tree/main/skills/.experimental/create-plan
-```
-
-After installing a skill, restart Codex to pick up new skills.
-
-## License
-
-The license of an individual skill can be found directly inside the skill's directory inside the `LICENSE.txt` file.
+Each skill keeps discovery and read-only diagnosis separate from mutations. Policy-gated operations must use the AI-INTEL binding and approval workflow.
